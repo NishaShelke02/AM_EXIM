@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.product-page {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #FFF8DC 100%); /* Subtle warm gradient from Services.css */
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1); /* Soft brown-tinted shadow */
+  overflow: hidden;
+  animation: fadeIn 1s ease-out; /* Fade-in animation from Services.css */
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between sections */
+}
+
+/* Breadcrumb navigation */
+.breadcrumb {
+  font-size: 0.95rem;
+  color: #555; /* Grayish text color from Services.css */
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.breadcrumb a {
+  color: #8B4513; /* Saddle brown for links */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+  color: #FFD700; /* Gold accent on hover */
+}
+
+.breadcrumb span {
+  color: #333; /* Darker gray for the current page */
+}
+
+/* Product detail section */
+.product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Space between image and description */
+  align-items: flex-start;
+}
+
+/* Product image container */
+.product-image-container {
+  flex: 1;
+  min-width: 300px;
+  background: rgba(255, 248, 220, 0.9); /* Light cream background from Services.css */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.product-image-container:hover {
+  transform: translateY(-5px); /* Subtle lift on hover, inspired by Services.css */
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2); /* Gold-tinted shadow */
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  max-height: 500px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1); /* Brown-tinted shadow */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Product gallery (thumbnails) */
+.product-gallery {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+  overflow-x: auto; /* For horizontal scrolling on smaller screens */
+}
+
+.product-gallery img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+}
+
+.product-gallery img.active {
+  border-color: #FFD700; /* Gold border for active image */
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3); /* Enhanced gold glow */
+}
+
+.product-gallery img:hover {
+  border-color: #8B4513; /* Saddle brown on hover */
+  transform: scale(1.1); /* Slight enlargement */
+}
+
+/* Product description section */
+.product-description {
+  flex: 1;
+  min-width: 300px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.8); /* Light background from Services.css */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.product-description:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2); /* Gold-tinted shadow on hover */
+}
+
+.product-description h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8B4513; /* Saddle brown for headings */
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.product-description h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #FFD700; /* Gold underline */
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); /* Glowing effect */
+  animation: shimmer 2s infinite; /* Shimmer animation from Services.css */
+}
+
+.product-description p {
+  font-size: 1.15rem;
+  color: #555; /* Grayish text */
+  line-height: 1.7;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeInText 0.5s ease-out forwards; /* Fade-in animation */
+}
+
+/* Animations (copied from Services.css for consistency) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%, 100% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.8); }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .product-detail {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-page {
+    padding: 50px 15px;
+  }
+
+  .product-detail {
+    flex-direction: column;
+  }
+
+  .product-image-container,
+  .product-description {
+    width: 100%;
+  }
+
+  .product-description h2 {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-page {
+    padding: 40px 10px;
+    border-radius: 15px;
+  }
+
+  .product-description h2 {
+    font-size: 1.8rem;
+  }
+
+  .product-gallery img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Smooth scrolling (from Services.css) */
+html {
+  scroll-behavior: smooth;
+}

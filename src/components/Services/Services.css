@@ -1,0 +1,465 @@
+/* Services.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.services-container {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #FFF8DC 100%); /* Subtle warm gradient for heritage feel */
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1); /* Soft brown-tinted shadow */
+  overflow: hidden;
+  animation: fadeIn 1s ease-out;
+  display: flex;
+  flex-direction: column; /* Overall column for stacking top layout + benefits */
+  gap: 60px; /* Space between top section and benefits */
+}
+
+/* Top Three-Column Layout: Left Text | Middle Image | Right Text */
+.services-container > .services-left,
+.services-container > .services-center,
+.services-container > .services-right {
+  flex: 1; /* Equal base flex for balance */
+}
+
+.services-container > .services-left {
+  flex: 1; /* Left text takes standard space */
+  order: 1;
+}
+
+.services-container > .services-center {
+  flex: 1.5; /* Middle image gets more space to emphasize centering */
+  order: 2;
+  display: flex;
+  justify-content: center; /* Horizontally centers the image */
+  align-items: center; /* Vertically centers the image */
+  min-height: 400px; /* Ensures vertical centering works */
+}
+
+.services-container > .services-right {
+  flex: 1; /* Right text takes standard space */
+  order: 3;
+}
+
+.services-top-wrapper {
+  /* Implicit wrapper via flex on container; no need for extra div in JSX */
+  display: flex;
+  gap: 30px; /* Space between left, middle, right */
+  align-items: center;
+  justify-content: space-between; /* Pushes left/right to sides, middle to center */
+  flex-wrap: wrap;
+  width: 100%;
+  margin-bottom: 20px; /* Space before benefits */
+}
+
+/* Left Section: How We Work Text */
+.services-left {
+  padding: 30px;
+  background: rgba(255, 248, 220, 0.9); /* Light cream with transparency */
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.services-left::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8B4513, #FFD700); /* Gold-brown gradient top border */
+}
+
+.services-left:hover {
+  transform: translateX(-5px); /* Subtle shift left on hover for dynamism */
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2);
+}
+
+.services-left h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #8B4513;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+  position: relative;
+}
+
+.services-left h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #FFD700;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); /* Glowing gold underline */
+  animation: shimmer 2s infinite; /* Unique shimmer animation */
+}
+
+.services-left p {
+  font-size: 1.15rem;
+  color: #555;
+  line-height: 1.7;
+  margin: 0 0 20px 0;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeInText 0.5s ease-out forwards; /* Fade-in for text */
+}
+
+.services-left hr {
+  border: none;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #FFD700, transparent); /* Wavy gold effect via gradient */
+  width: 80px;
+  margin: 0;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+
+/* Middle Section: Centered Image */
+.services-center {
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.services-center img {
+  max-width: 100%;
+  height: auto;
+  max-height: 400px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3); /* Enhanced gold glow for centering emphasis */
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #FFD700, #8B4513) border-box; /* Holographic gradient border */
+  padding: 5px; /* Inner padding for border effect */
+  animation: floatCenter 3s ease-in-out infinite alternate; /* Unique floating animation for middle image */
+  transition: all 0.3s ease;
+  display: block;
+  margin: 0 auto; /* Extra centering assurance */
+}
+
+.services-center img:hover {
+  transform: scale(1.05) rotate(2deg); /* Slight zoom + tilt for interactivity */
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+}
+
+/* Right Section: Service Features Text */
+.services-right {
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.services-right:hover {
+  transform: translateX(5px); /* Subtle shift right on hover, mirroring left */
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2);
+}
+
+.service-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 15px;
+  background: linear-gradient(135deg, rgba(255, 248, 220, 0.7), rgba(255, 255, 255, 0.9)); /* Unique cream-white gradient */
+  border-radius: 12px;
+  border-right: 4px solid #FFD700; /* Gold accent border on right side */
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateX(20px);
+  animation: slideInRight 0.6s ease-out forwards;
+}
+
+.service-item:nth-child(1) { animation-delay: 0.1s; }
+.service-item:nth-child(2) { animation-delay: 0.2s; }
+.service-item:nth-child(3) { animation-delay: 0.3s; }
+.service-item:nth-child(4) { animation-delay: 0.4s; }
+.service-item:nth-child(5) { animation-delay: 0.5s; }
+
+.service-item:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.25);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFD700;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.service-item:hover .icon {
+  background: #8B4513;
+  transform: rotate(-10deg) scale(1.1); /* Mirror spin to left side */
+}
+
+.icon svg {
+  font-size: 1rem;
+  color: #fff;
+}
+
+.service-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeInText 0.4s ease-out forwards 0.2s; /* Staggered fade-in */
+}
+
+/* Benefits Section (Full-Width Below) */
+.benefits-section {
+  text-align: center;
+  padding: 60px 0;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); /* Warm brown gradient */
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  order: 4; /* Ensures it comes last in flex */
+}
+
+.benefits-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%); /* Subtle gold radial glow */
+  animation: float 6s ease-in-out infinite;
+}
+
+.benefits-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 40px 0;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.benefits-section h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #FFD700;
+  margin: 10px auto 0;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.5);
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+  justify-content: center; /* Centers the grid */
+}
+
+.benefit-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s ease;
+  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%); /* Unique slanted shape */
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.benefit-card:hover::before {
+  left: 100%; /* Shimmer effect */
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.3);
+}
+
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border-radius: 50%;
+  box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.benefit-card:hover .benefit-icon {
+  transform: rotate(360deg) scale(1.1); /* Fun spin */
+  background: linear-gradient(135deg, #8B4513, #A0522D);
+}
+
+.benefit-card p {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%, 100% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes floatCenter {
+  from { transform: translateY(0) rotate(0deg); }
+  to { transform: translateY(-5px) rotate(1deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-top-wrapper {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .services-container > .services-center {
+    flex: 2; /* Image takes more space on tablet */
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-container {
+    padding: 50px 15px;
+    gap: 40px;
+  }
+
+  /* Stack on mobile: Left → Image (centered full-width) → Right */
+  .services-top-wrapper {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .services-container > .services-left,
+  .services-container > .services-center,
+  .services-container > .services-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .services-center {
+    order: 2; /* Image in middle of stack */
+    justify-content: center;
+  }
+
+  .services-left h2,
+  .benefits-section h2 {
+    font-size: 2.2rem;
+  }
+
+  .services-center img {
+    max-height: 300px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services-container {
+    padding: 40px 10px;
+    border-radius: 15px;
+  }
+
+  .services-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .service-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 12px;
+  }
+
+  .icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .benefit-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.3rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

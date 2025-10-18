@@ -1,0 +1,321 @@
+/* AboutUs.css */
+
+/* Import Google Fonts for a modern, elegant Indian-inspired typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap');
+
+/* General Section Styling */
+.about-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Subtle gradient for depth */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23f0f0f0" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="%23f0f0f0" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="%23f0f0f0" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Title & Tagline */
+.about-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #8B4513; /* Saddle brown for traditional warmth */
+  margin-bottom: 15px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+}
+
+.about-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #FFD700, #FFA500); /* Golden accent line */
+  border-radius: 2px;
+}
+
+.about-tagline {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #A0522D; /* Sienna for earthy tone */
+  margin-bottom: 50px;
+  font-style: italic;
+  font-family: 'Dancing Script', cursive; /* Elegant script font for tagline */
+  letter-spacing: 1px;
+  animation: fadeIn 1.5s ease-out 0.5s both;
+}
+
+/* Main Description */
+.about-description {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  color: #555;
+  margin-bottom: 35px;
+  text-align: justify; /* Better readability */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+.about-description:nth-child(4) {
+  animation: fadeInUp 1s ease-out 0.8s both;
+}
+
+.about-description:nth-child(5) {
+  animation: fadeInUp 1s ease-out 1s both;
+}
+
+.about-container:hover .about-description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Why Us Section */
+.why-us {
+  margin-top: 80px;
+  text-align: left;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-out 1.2s both;
+}
+
+.why-us h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #8B4513;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.why-us h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #8B4513, #A0522D);
+  border-radius: 2px;
+}
+
+.why-us ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 50px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.why-us li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  padding: 25px;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid #FFD700; /* Golden left border for attraction */
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bounce effect */
+  overflow: hidden;
+}
+
+.why-us li::before {
+  content: '✦'; /* Simple decorative icon */
+  font-size: 1.5rem;
+  color: #FFD700;
+  position: absolute;
+  left: 15px;
+  top: 25px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.why-us li:hover::before {
+  opacity: 1;
+}
+
+.why-us li:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.15);
+  border-left-color: #FFA500;
+}
+
+.why-us li strong {
+  color: #8B4513;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.15rem;
+}
+
+/* Footer Paragraph */
+.about-footer {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #666;
+  text-align: center;
+  margin-top: 30px;
+  padding: 25px 30px;
+  background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.about-footer::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #FFD700, #FFA500, #8B4513);
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.about-footer:hover::before {
+  opacity: 1;
+}
+
+.about-footer strong {
+  color: #8B4513;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-section {
+    padding: 80px 15px;
+  }
+
+  .about-title {
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+  }
+
+  .about-tagline {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+  }
+
+  .about-description {
+    font-size: 1.1rem;
+    text-align: left;
+    padding: 0 10px;
+  }
+
+  .why-us {
+    margin-top: 60px;
+  }
+
+  .why-us h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+  }
+
+  .why-us ul {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .why-us li {
+    font-size: 1rem;
+    padding: 20px;
+  }
+
+  .about-footer {
+    font-size: 1.2rem;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  .about-tagline {
+    font-size: 1.3rem;
+  }
+
+  .why-us h2 {
+    font-size: 1.9rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .why-us li {
+    padding: 18px;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,237 @@
+[
+  {
+    "category": "Agriculture",
+    "slug": "agriculture",
+    "products": [
+      {
+        "id": "1",
+        "name": "Onions",
+        "slug": "onions",
+        "image": "/images/onions.png",
+        "gallery": [
+            "/images/onion.png",
+          "/images/onions1.png",
+          "/images/onion2.png",
+          "/images/onion3.png"
+        ],
+        "shortDescription": "Fresh farm onions.",
+        "description": "Premium-quality onions sourced from the fertile belts of Maharashtra. Known for freshness, flavor, and long shelf life. Varieties: Red Onion | Pink Onion | White Onion"
+      },
+      {
+        "id": "2",
+        "name": "Cocopeat",
+        "slug": "cocopeat",
+        "image": "/images/cocopeat.png",
+        "gallery": [
+          "/images/cocopeat1.png",
+          "/images/cocopeat2.png",
+          "/images/cocopeat3.png"
+        ],
+        "shortDescription": "Sustainable growing medium.",
+        "description": "High-quality cocopeat blocks and powder for horticulture and hydroponics. 100% organic, renewable and eco-friendly.Sustainably processed from coconut husks — ideal for hydroponics, horticulture, and soil improvement. Varieties: 5 kg Blocks | 650 g Briquettes | Grow Bags | Loose Powder"
+      },
+      {
+        "id": "3",
+        "name": "Cow Dung",
+        "slug": "cow-dung",
+        "image": "/images/cowdung.png",
+        "gallery": [
+          "/images/cow.png",
+          "/images/cow2.png",
+          "/images/cow1.png"
+        ],
+        "shortDescription": "Natural fertilizer.",
+        "description": "Pure, organic cow dung used as natural manure, perfect for sustainable and chemical-free farming.Eco-friendly and 100% natural — supporting organic farming and green living. Varieties: Dung Cakes | Manure | Logs | Powder"
+      }
+    ]
+  },
+
+  {
+    "category": "Indian Spices",
+    "slug": "indian-spices",
+    "description":"Authentic Indian spices that bring aroma, color, and taste to global cuisines. Sourced directly from trusted farms and processors.",
+    "products": [
+      {
+        "id": "1",
+        "name": "Turmeric Powder",
+        "slug": "turmeric-powder",
+        "image": "/images/turmeric.png",
+        "gallery": ["/images/turmeric1.png", "/images/turmeric3.png"],
+        "shortDescription": "Golden Goodness – From Farm to Table",
+        "description": "Premium turmeric powder rich in curcumin, 100% organic and solar dried."
+      },
+      {
+        "id": "2",
+        "name": "Cumin Seeds",
+        "slug": "cumin-seeds",
+        "image": "/images/cumin.png",
+        "gallery": ["/images/cumin1.png", "/images/cumin2.png","/images/cumin3.png"],
+        "shortDescription": "Fragrant Indian cumin seeds.",
+        "description": "Fresh cumin seeds packed with aroma and flavor, sourced from certified farms."
+      },
+      {
+        "id": "3",
+        "name": "Coriander Seeds",
+        "slug": "coriander-seeds",
+        "image": "/images/coriander.png",
+        "gallery": ["/images/coriander1.png","/images/coriander2.png","/images/coriander3.png"],
+        "shortDescription": "Fragrant coriander.",
+        "description": "Natural coriander seeds with high oil content, perfect for cooking and seasoning."
+      },
+      {
+        "id": "4",
+        "name": "Fennel Seeds",
+        "slug": "fennel-seeds",
+        "image": "/images/fennel.png",
+        "gallery": ["/images/fennel1.png","/images/fennel2.png"],
+        "shortDescription": "Aromatic fennel.",
+        "description": "Sweet, aromatic fennel seeds — a staple in Indian cuisine and Ayurvedic blends."
+      },
+      {
+        "id": "5",
+        "name": "Fenugreek Seeds",
+        "slug": "fenugreek-seeds",
+        "image": "/images/fenugreek.png",
+        "gallery": ["/images/fenugreek1.png","/images/fenugreek2.png"],
+        "shortDescription": "Pure methi seeds.",
+        "description": "Rich in fiber and nutrients — sourced directly from farmers."
+      },
+      {
+        "id": "6",
+        "name": "Black Pepper",
+        "slug": "black-pepper",
+        "image": "/images/black.png",
+        "gallery": ["/images/black1.png","/images/black2.png"],
+        "shortDescription": "Premium whole black pepper.",
+        "description": "Sun-dried black pepper with strong pungency and bold flavor."
+      },
+      {
+        "id": "7",
+        "name": "Cardamom",
+        "slug": "cardamom",
+        "image": "/images/cardamom.png",
+        "gallery": ["/images/cardamom1.png","/images/cardamom2.png","/images/cardamom3.png"],
+        "shortDescription": "Green cardamom pods.",
+        "description": "Handpicked green cardamom, known for its sweet aroma and intense flavor."
+      },
+      {
+        "id": "8",
+        "name": "Cloves",
+        "slug": "cloves",
+        "image": "/images/cloves.png",
+        "gallery": ["/images/cloves1.png","/images/cloves2.png"],
+        "shortDescription": "Strong aromatic cloves.",
+        "description": "Sun-cured, export-quality cloves with rich aroma."
+      },
+      {
+        "id": "9",
+        "name": "Mustard Seeds",
+        "slug": "mustard-seeds",
+        "image": "/images/mustar1.png",
+        "gallery": ["/images/mustar1.png","/images/mustard.png"],
+        "shortDescription": "Mustard seeds.",
+        "description": "High oil content mustard seeds, black and yellow varieties available."
+      },
+      {
+        "id": "10",
+        "name": "Ajwain",
+        "slug": "ajwain",
+        "image": "/images/ajwain.png",
+        "gallery": ["/images/ajwain1.png","/images/ahwain2.png"],
+        "shortDescription": "Strong ajwain flavor.",
+        "description": "Carom seeds with intense aroma, ideal for Indian cooking."
+      },
+      {
+        "id": "11",
+        "name": "Bay Leaf",
+        "slug": "bay-leaf",
+        "image": "/images/bay.png",
+        "gallery": ["/images/bay1.png","/images/bay3.png"],
+        "shortDescription": "Natural bay leaves.",
+        "description": "Hand-dried aromatic bay leaves."
+      },
+      {
+        "id": "12",
+        "name": "Nutmeg",
+        "slug": "nutmeg",
+        "image": "/images/nutmeg.png",
+        "gallery": ["/images/nutmeg1.png","/images/nutmeg2.png"],
+        "shortDescription": "Nutmeg spice.",
+        "description": "Premium nutmeg with high oil content."
+      },
+      
+      {
+        "id": "14",
+        "name": "Star Anise",
+        "slug": "star-anise",
+        "image": "/images/star.png",
+        "gallery": ["/images/star1.png","/images/star2.png"],
+        "shortDescription": "Exotic star anise.",
+        "description": "Natural star anise used in traditional Indian masalas."
+      },
+      {
+        "id": "15",
+        "name": "Red Chili",
+        "slug": "red-chili",
+        "image": "/images/red.png",
+        "gallery": ["/images/red1.png","/images/red2.png"],
+        "shortDescription": "Dried red chili.",
+        "description": "Bold, hot and flavorful chili – sun-dried and chemical-free."
+      }
+    ]
+  },
+
+  {
+    "category": "Traditional Textiles",
+    "slug": "traditional-textiles",
+    "products": [
+      {
+        "id": "1",
+        "name": "Banarasi Saree",
+        "slug": "banarasi-saree",
+        "image": "/images/banarasi.png",
+        "gallery": ["/images/banarasi1.png", "/images/banarasi2.png", "/images/banarasi3.png"],
+        "shortDescription": "Elegant Banarasi silk saree.",
+        "description": "Handwoven Banarasi saree with intricate zari work and premium silk."
+      },
+      {
+        "id": "2",
+        "name": "Kanjivaram Saree",
+        "slug": "kanjivaram-saree",
+        "image": "/images/kanjivaram.png",
+        "gallery": ["/images/kanjivaram1.png","/images/kanjivaram2.png","/images/kanjivaram33.png"],
+        "shortDescription": "Kanjivaram silk saree.",
+        "description": "Traditional Kanjivaram saree with royal finish and golden zari."
+      },
+      {
+        "id": "3",
+        "name": "Paithani Saree",
+        "slug": "paithani-saree",
+        "image": "/images/textiles/pai.png",
+        "gallery": [
+          "/images/textiles/pai1.png",
+          "/images/textiles/pai2.png",
+          "/images/textiles/pai3.png",
+          "/images/textiles/pai4.png",
+          "/images/textiles/pai5.png",
+          "/images/textiles/pai6.png",
+          "/images/textiles/pai7.png","/images/textiles/pai8.png",
+          "/images/textiles/pai9.png","/images/textiles/pai10.png",
+          "/images/textiles/pai11.png","/images/textiles/pai12.png",
+          "/images/textiles/pai13.png",
+          "/images/textiles/pai14.png",
+          "/images/textiles/pai15.png",
+          "/images/textiles/pai16.png",
+          "/images/textiles/pai17.png",
+          "/images/textiles/pai18.png","/images/textiles/pai19.png",
+          "/images/textiles/pai20.png"
+        
+        
+        ],
+        "shortDescription": "Paithani silk.",
+        "description": "Maharashtrian Paithani saree with peacock motifs and real zari."
+      }
+      
+    ]
+  }
+]

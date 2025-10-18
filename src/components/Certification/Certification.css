@@ -1,0 +1,411 @@
+/* src/components/Certification/Certification.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f8f9fa 0%, #FFF8DC 100%); /* Subtle warm gradient */
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Main Container */
+.certification-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  animation: fadeIn 1s ease-out;
+  position: relative;
+}
+
+/* Floating particles effect for background */
+.certification-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 20%, rgba(255, 165, 0, 0.1) 0%, transparent 50%),
+                    radial-gradient(circle at 40% 80%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+  animation: floatParticles 10s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Hero Section */
+.certification-hero {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%); /* Saddle brown gradient */
+  color: #FFF8DC;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.certification-hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  animation: rotateGlow 20s linear infinite;
+  pointer-events: none;
+}
+
+.certification-hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: bounceIn 1.2s ease-out;
+}
+
+.certification-hero h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 5px;
+  background: #FFD700; /* Gold underline */
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.6);
+  animation: shimmer 2s infinite, expandWidth 3s ease-out;
+}
+
+.certification-hero p {
+  font-size: 1.3rem;
+  font-weight: 400;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  animation: fadeInText 0.8s ease-out 0.5s forwards, slideUp 1s ease-out 0.5s forwards;
+}
+
+.certification-hero strong {
+  color: #FFD700;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Certifications List Section */
+.certifications-list {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 80px 20px;
+  border-radius: 0;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1);
+  position: relative;
+}
+
+.certifications-list h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #8B4513;
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+  animation: fadeInUp 1s ease-out;
+}
+
+.certifications-list h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 5px;
+  background: linear-gradient(90deg, #FFD700, #FFA500);
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+  animation: pulse 2s infinite, growLine 4s ease-out;
+}
+
+/* Certifications Grid */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+/* Certification Item */
+.cert-item {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+  border: 1px solid rgba(139, 69, 19, 0.1);
+  position: relative;
+  overflow: hidden;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.cert-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.cert-item:hover::before {
+  left: 100%;
+}
+
+.cert-item:hover {
+  transform: perspective(1000px) rotateX(-5deg) translateY(-15px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+  filter: brightness(1.1);
+}
+
+.cert-item h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #8B4513;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+.cert-item:hover h3 {
+  color: #FFD700;
+  text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+}
+
+.cert-item p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.cert-item:hover p {
+  opacity: 0.9;
+}
+
+.cert-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cert-item:hover .cert-logo {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+}
+
+/* CTA Section */
+.cta-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #FFF8DC 0%, #f8f9fa 100%);
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1);
+  position: relative;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,215,0,0.1)"/></svg>') repeat;
+  animation: twinkle 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  color: #333;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(255, 215, 0, 0.7);
+  filter: brightness(1.1);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInText {
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%, 100% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4); }
+  50% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.8); }
+}
+
+@keyframes expandWidth {
+  from { width: 0; }
+  to { width: 150px; }
+}
+
+@keyframes growLine {
+  from { width: 0; }
+  to { width: 120px; }
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatParticles {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .cert-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .certification-hero {
+    padding: 60px 15px;
+  }
+
+  .certification-hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .certification-hero p {
+    font-size: 1.1rem;
+  }
+
+  .certifications-list {
+    padding: 50px 15px;
+  }
+
+  .certifications-list h2 {
+    font-size: 2.4rem;
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+
+  .cert-item {
+    padding: 20px;
+  }
+
+  .cert-item h3 {
+    font-size: 1.4rem;
+  }
+
+  .cert-item p {
+    font-size: 0.9rem;
+  }
+
+  .cert-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .cta-section {
+    padding: 40px 15px;
+  }
+
+  .cta-button {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+  }
+}

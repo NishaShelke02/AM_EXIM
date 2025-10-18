@@ -1,0 +1,212 @@
+/* src/components/Footer.css - Modern, Attractive Footer Styles for AM INDISOUL EXIM */
+
+/* Import Google Fonts (matching the site's theme) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Footer Base Styles */
+.footer {
+  background: linear-gradient(rgb(26, 27, 26)); /* Dark green gradient for earthy feel */
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  margin-top: auto; /* Pushes footer to bottom in flex layout */
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 20px 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+}
+
+.footer-section {
+  text-align: left;
+}
+
+.footer-section h2,
+.footer-section h3 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  color: #FFBD6F; /* Orange accent for logo */
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  color: #e0e0e0;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section li {
+  margin-bottom: 10px;
+}
+
+.footer-section a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: block;
+  padding: 5px 0;
+}
+
+.footer-section a:hover {
+  color: #FFBD6F; /* Orange hover for links */
+  padding-left: 5px;
+  transform: translateX(5px);
+}
+
+/* Social Icons */
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-social a:hover {
+  background: #FFBD6F;
+  color: #2c5f2d;
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(255, 189, 111, 0.4);
+}
+
+.footer-social svg {
+  font-size: 16px;
+}
+
+/* Footer Bottom (Copyright) */
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 40px 15px 20px;
+    text-align: center;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-size: 1.5rem;
+  }
+
+  .footer-section h3 {
+    font-size: 1.2rem;
+  }
+
+  .footer-section ul {
+    text-align: center;
+  }
+
+  .footer-section li {
+    margin-bottom: 8px;
+  }
+
+  .footer-social {
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .footer-social a {
+    width: 35px;
+    height: 35px;
+  }
+
+  .footer-social svg {
+    font-size: 14px;
+  }
+
+  .footer-bottom {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 30px 10px 15px;
+    gap: 25px;
+  }
+
+  .footer-logo {
+    font-size: 1.3rem;
+  }
+
+  .footer-section p,
+  .footer-section a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility and Smooth Transitions */
+.footer a:focus {
+  outline: 2px solid #FFBD6F;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.footer-section h2:focus,
+.footer-section h3:focus {
+  outline: 1px solid #FFBD6F;
+}
+
+/* Custom Scrollbar for Footer (if needed) */
+.footer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.footer::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer::-webkit-scrollbar-thumb {
+  background: #FFBD6F;
+  border-radius: 3px;
+}
