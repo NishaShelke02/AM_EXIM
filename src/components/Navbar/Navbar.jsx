@@ -126,12 +126,12 @@ const Navbar = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/products/spices" onClick={closeMenu}>
+                  <a href="/products/indian-spices" onClick={closeMenu}>
                     Indian Spices
                   </a>
                 </li>
                 <li>
-                  <a href="/products/textiles" onClick={closeMenu}>
+                  <a href="/products/traditional-textiles" onClick={closeMenu}>
                     Traditional Textiles
                   </a>
                 </li>

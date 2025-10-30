@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import "./ProductList.css";
 
 const ProductList = () => {
   const { categorySlug } = useParams();
-  const [products, setProducts] = useState([]);
+  const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const slugify = (str = "") =>
+    str.toLowerCase().trim().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
 
   useEffect(() => {
     const load = async () => {
       try {
         const res = await fetch("/data/products.json");
-        const data = await res.json();
-        const category = data.find(
-          (c) => c.slug === categorySlug || c.category.toLowerCase().replace(/\s+/g, "-") === categorySlug
+        const json = await res.json();
+
+        const cat = json.find(
+          (c) => (c.slug || slugify(c.category)) === categorySlug
         );
-        setProducts(category ? category.products : []);
-      } catch (err) {
-        console.error(err);
+        setCategory(cat || null);
+      } catch (e) {
+        console.error("Error loading products:", e);
       } finally {
         setLoading(false);
       }
@@ -25,17 +30,20 @@ const ProductList = () => {
   }, [categorySlug]);
 
   if (loading) return <p>Loading...</p>;
-  if (products.length === 0) return <p>No products found in this category.</p>;
+  if (!category) return <p>Category not found.</p>;
 
   return (
-    <div className="product-list container">
-      <h1>{categorySlug.toUpperCase()}</h1>
+    <div className="category-page">
+      <h1>{category.category}</h1>
+
       <div className="product-grid">
-        {products.map((p, i) => (
-          <div key={i} className="product-card">
-            <img src={p.image} alt={p.name} />
-            <h3>{p.name}</h3>
-            <p>{p.shortDescription}</p>
+        {category.products.map((p) => (
+          <div key={p.id} className="product-card">
+            <Link to={`/products/${categorySlug}/${p.slug}`}>
+              <img src={p.image} alt={p.name} />
+              <h3>{p.name}</h3>
+              <p>{p.shortDescription}</p>
+            </Link>
           </div>
         ))}
       </div>

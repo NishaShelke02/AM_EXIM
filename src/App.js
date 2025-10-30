@@ -29,10 +29,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
              <Route path="/products" element={<AllProducts />} />
-            <Route path="/products/:categorySlug" element={<AllProducts />} />
+            <Route path="/products/:categorySlug" element={<ProductList />} />
              <Route path="/products/:categorySlug/:productSlug" element={<Product />} />
             <Route path="/products/:categorySlug/:productSlug/details" element={<ProductDetails />} />
-            <Route path="/products/:categorySlug" element={<ProductList />} />
+            
              <Route path="/certification" element={<Certification />} /> {/* Matches Navbar's "Certification" link */}
             <Route path="/about" element={<AboutUs />} /> {/* Matches Navbar's "About Company" link */}
             <Route path="/services" element={<Services />}/>

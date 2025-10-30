@@ -8,7 +8,7 @@ const ContactUs = () => {
     name: "",
     email: "",
     contact: "",
-    message: ""
+    message: "",
   });
 
   const handleChange = (e) => {
@@ -16,16 +16,44 @@ const ContactUs = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    alert("Thank you! Your message has been submitted. We'll get back to you shortly.");
-    setFormData({
-      name: "",
-      email: "",
-      contact: "",
-      message: ""
-    });
+    
+    
+    const sheetDBUrl="https://sheetdb.io/api/v1/99qnm9gi9a5ri";
+    try {
+      const response = await fetch(sheetDBUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ 
+          data: [
+            {
+              name: formData.name,
+              email: formData.email,
+              contact: formData.contact,
+              message: formData.message,
+              timestamp: new Date().toISOString()
+            },
+          ] 
+        }),
+      });
+      if (response.ok) {
+        alert("Thank you! Your message has been submitted. We'll get back to you shortly.");
+        setFormData({
+          name: "",
+          email: "",
+          contact: "",
+          message: "",
+        });
+      } else {
+        alert("There was an issue submitting your message. Please try again later.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("⚠️ Network error. Please try again later.");
+    }
     // Add API integration here if needed (e.g., emailJS or backend endpoint)
   };
 

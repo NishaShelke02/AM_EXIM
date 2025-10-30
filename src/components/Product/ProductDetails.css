@@ -55,7 +55,7 @@
   align-items: flex-start;
 }
 
-/* Product image container */
+/* Product image slider container */
 .product-image-container {
   flex: 1;
   min-width: 300px;
@@ -64,6 +64,8 @@
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); /* Subtle shadow */
   padding: 20px;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .product-image-container:hover {
@@ -71,50 +73,84 @@
   box-shadow: 0 12px 35px rgba(255, 215, 0, 0.2); /* Gold-tinted shadow */
 }
 
-.product-image {
+/* Slider wrapper */
+.slider {
+  display: flex;
   width: 100%;
-  height: auto;
-  max-height: 500px;
-  border-radius: 20px;
-  box-shadow: 0 15px 40px rgba(139, 69, 19, 0.1); /* Brown-tinted shadow */
+  height: 500px;
+  transition: transform 0.5s ease;
+  animation: autoSlide 12s infinite; /* Automatic sliding every 4 seconds per slide (adjust based on image count) */
+}
+
+.slider:hover {
+  animation-play-state: paused; /* Pause on hover for manual control */
+}
+
+.slider img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  border-radius: 20px;
+  flex-shrink: 0;
 }
 
-.product-image:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
+/* Slider navigation buttons */
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: 10;
 }
 
-/* Product gallery (thumbnails) */
-.product-gallery {
+.slider-nav:hover {
+  background: #FFD700; /* Gold on hover */
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+}
+
+.slider-nav.prev {
+  left: 10px;
+}
+
+.slider-nav.next {
+  right: 10px;
+}
+
+/* Slider dots */
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 10px;
-  margin-top: 15px;
-  overflow-x: auto; /* For horizontal scrolling on smaller screens */
 }
 
-.product-gallery img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 10px;
+.slider-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
   cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  transition: background 0.3s ease;
 }
 
-.product-gallery img.active {
-  border-color: #FFD700; /* Gold border for active image */
-  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3); /* Enhanced gold glow */
+.slider-dot.active {
+  background: #FFD700; /* Gold for active dot */
 }
 
-.product-gallery img:hover {
-  border-color: #8B4513; /* Saddle brown on hover */
-  transform: scale(1.1); /* Slight enlargement */
+.slider-dot:hover {
+  background: #FFA500; /* Orange on hover */
 }
 
-/* No gallery message */
+/* No gallery message (if no images) */
 .no-gallery {
   font-size: 0.9rem;
   color: #777;
@@ -217,6 +253,17 @@
   50% { box-shadow: 0 2px 10px rgba(255, 215, 0, 0.8); }
 }
 
+/* Automatic slider animation (adjust percentages based on number of images) */
+/* Example for 3 images: 0% -> 33.33% -> 66.66% -> 100% (back to 0%) */
+/* For n images, each step is (100 / n)% */
+@keyframes autoSlide {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-100%); } /* Adjust for 4 images: 25%, 50%, 75%, 100% */
+  50% { transform: translateX(-200%); }
+  75% { transform: translateX(-300%); }
+  100% { transform: translateX(0); }
+}
+
 /* Responsive design */
 @media (max-width: 1024px) {
   .product-detail {
@@ -246,6 +293,15 @@
     width: 100%;
     padding: 15px;
   }
+
+  .slider {
+    height: 400px;
+  }
+
+  .slider-nav {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -258,9 +314,18 @@
     font-size: 1.8rem;
   }
 
-  .product-gallery img {
-    width: 50px;
-    height: 50px;
+  .slider {
+    height: 300px;
+  }
+
+  .slider-nav {
+    width: 30px;
+    height: 30px;
+  }
+
+  .slider-dot {
+    width: 10px;
+    height: 10px;
   }
 
   .product-price {
