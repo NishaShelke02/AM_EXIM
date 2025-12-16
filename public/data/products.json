@@ -7,12 +7,15 @@
         "id": "1",
         "name": "Onions",
         "slug": "onions",
-        "image": "/images/onions.png",
+        "image": "/images/onions4.png",
         "gallery": [
             "/images/onion.png",
           "/images/onions1.png",
           "/images/onion2.png",
-          "/images/onion3.png"
+          "/images/onion3.png",
+          "/images/onions4.png",
+          "/images/onions5.png"
+
         ],
         "shortDescription": "Fresh farm onions.",
         "description": "Premium-quality onions sourced from the fertile belts of Maharashtra. Known for freshness, flavor, and long shelf life. Varieties: Red Onion | Pink Onion | White Onion"

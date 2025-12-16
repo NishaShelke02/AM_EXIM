@@ -1,185 +1,156 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import { FiPhoneCall } from "react-icons/fi";
+import { HiOutlineMail } from "react-icons/hi";
+import { FaGlobeAmericas } from "react-icons/fa";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 import "./Navbar.css";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaWhatsapp,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
 
 const Navbar = () => {
-  const [showProducts, setShowProducts] = useState(false);
-  const [showAbout, setShowAbout] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // mobile menu toggle
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
 
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const productRef = useRef(null);
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-    setShowProducts(false);
-    setShowAbout(false);
-  };
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (productRef.current && !productRef.current.contains(event.target)) {
+        setProductOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
-      {/* ====== TOP HEADER ====== */}
-      <header className="top-header">
-        <div className="contact-info">
-          <span>📍 Moshi, Pune, Maharashtra, India</span>
-          <span>📧 contact@amindisoulexim.com</span>
-        </div>
-
-        <div className="social-icons">
-          <a
-            href="https://facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Facebook"
-          >
-            <FaFacebookF />
-          </a>
-          <a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <FaLinkedinIn />
-          </a>
-          <a
-            href="https://wa.me/+917379650571"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-            <FaWhatsapp />
-          </a>
-        </div>
-      </header>
-
-      {/* ====== MAIN NAVBAR ====== */}
-      <nav className="navbar">
-        {/* Logo */}
+      {/* ---------- TOP BAR ---------- */}
+      <div className="top-bar">
         <div className="logo-section">
-          <a href="/" aria-label="AM INDISOUL EXIM Home">
-            <img
-              src="/logo.png"
-              alt="AM INDISOUL EXIM Logo"
-              className="logo"
-            />
-          </a>
+          <img src="/logo.png" alt="AM EXIM" className="logo-img" />
         </div>
 
-        {/* Hamburger icon for mobile */}
         <div
           className="hamburger"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
+          onClick={() => {
+            setMenuOpen(!menuOpen);
+            setProductOpen(false);
+          }}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
         >
-          {menuOpen ? <FaTimes /> : <FaBars />}
+          {menuOpen ? <IoMdClose size={28} /> : <GiHamburgerMenu size={28} />}
         </div>
 
-        {/* Navigation Links */}
-        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <li>
-            <a href="/" onClick={closeMenu}>
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="/services" onClick={closeMenu}>
-              Services
-            </a>
-          </li>
+        <div className="top-items-desktop">
+          <a href="tel:+917379650571" className="top-item">
+            <FiPhoneCall className="top-icon" />
+            <div className="top-text">
+              <b>+91 73796 50571</b>
+              <p>Make A Call</p>
+            </div>
+          </a>
 
-          {/* Our Products Dropdown */}
-          <li
-            className={`dropdown ${showProducts ? "active" : ""}`}
-            onMouseEnter={() => setShowProducts(true)}
-            onMouseLeave={() => setShowProducts(false)}
+          <div className="divider" />
+
+          <a href="mailto:contact@amindisoulexim.com" className="top-item">
+            <HiOutlineMail className="top-icon" />
+            <div className="top-text">
+              <b>contact@amindisoulexim.com</b>
+              <p>Get An Estimate</p>
+            </div>
+          </a>
+
+          <div className="divider" />
+
+          <a
+            href="https://goo.gl/maps/moshipuneindian"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="top-item"
           >
-            <button
-              className="dropdown-btn"
-              aria-expanded={showProducts}
-              aria-haspopup="true"
-              aria-controls="products-menu"
-              onClick={() => setShowProducts((prev) => !prev)} // for mobile
-            >
-              Our Products <span className="arrow">▾</span>
-            </button>
+            <FaGlobeAmericas className="top-icon" />
+            <div className="top-text">
+              <b> Moshi, Pune, Maharashtra, India</b>
+              <p>Location</p>
+            </div>
+          </a>
+        </div>
+      </div>
 
-            {showProducts && (
-              <ul id="products-menu" className="dropdown-menu energy">
-                <li>
-                  <a href="/products/agriculture" onClick={closeMenu}>
-                    Agriculture
-                  </a>
-                </li>
-                <li>
-                  <a href="/products/indian-spices" onClick={closeMenu}>
-                    Indian Spices
-                  </a>
-                </li>
-                <li>
-                  <a href="/products/traditional-textiles" onClick={closeMenu}>
-                    Traditional Textiles
-                  </a>
-                </li>
-              </ul>
-            )}
+      {/* ---------- MAIN NAVBAR ---------- */}
+      <nav className={`navbar ${menuOpen ? "open" : ""}`}>
+        <ul>
+          <li>
+            <Link to="/" onClick={() => setMenuOpen(false)}>HOME</Link>
           </li>
 
-          {/* About Us Dropdown */}
+          <li>
+            <Link to="/about" onClick={() => setMenuOpen(false)}>ABOUT US</Link>
+          </li>
+
+          {/* PRODUCTS DROPDOWN */}
           <li
-            className={`dropdown ${showAbout ? "active" : ""}`}
-            onMouseEnter={() => setShowAbout(true)}
-            onMouseLeave={() => setShowAbout(false)}
+            className={`dropdown ${productOpen ? "active" : ""}`}
+            ref={productRef}
           >
-            <button
-              className="dropdown-btn"
-              aria-expanded={showAbout}
+            <span
+              className="dropdown-title"
+              onClick={() => setProductOpen(!productOpen)}
+              aria-expanded={productOpen}
               aria-haspopup="true"
-              aria-controls="about-menu"
-              onClick={() => setShowAbout((prev) => !prev)} // for mobile
             >
-              About Us <span className="arrow">▾</span>
-            </button>
+              OUR PRODUCTS ▾
+            </span>
 
-            {showAbout && (
-              <ul id="about-menu" className="dropdown-menu energy">
-                <li>
-                  <a href="/about" onClick={closeMenu}>
-                    Our Company
-                  </a>
-                </li>
-                <li>
-                  <a href="/certification" onClick={closeMenu}>
-                    Certification
-                  </a>
-                </li>
-              </ul>
-            )}
+            <ul className={`dropdown-menu ${productOpen ? "show" : ""}`}>
+              <li>
+                <Link
+                  to="/products/indian-spices"
+                  onClick={() => { setMenuOpen(false); setProductOpen(false); }}
+                >
+                  Indian Spices
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/products/agriculture"
+                  onClick={() => { setMenuOpen(false); setProductOpen(false); }}
+                >
+                  Agriculture
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/products/traditional-textiles"
+                  onClick={() => { setMenuOpen(false); setProductOpen(false); }}
+                >
+                  Traditional Textiles
+                </Link>
+              </li>
+            </ul>
           </li>
 
           <li>
-            <a href="/blogs" onClick={closeMenu}>
-              Blogs
-            </a>
+            <Link to="/services" onClick={() => setMenuOpen(false)}>SERVICES</Link>
           </li>
+
           <li>
-            <a href="/contactus" onClick={closeMenu}>
-              Contact Us
-            </a>
+            <Link to="/certification" onClick={() => setMenuOpen(false)}>VERIFY US</Link>
+          </li>
+
+          <li>
+            <Link to="/blogs" onClick={() => setMenuOpen(false)}>BLOGS</Link>
+          </li>
+
+          <li>
+            <Link to="/contactus" onClick={() => setMenuOpen(false)}>CONTACT US</Link>
           </li>
         </ul>
       </nav>

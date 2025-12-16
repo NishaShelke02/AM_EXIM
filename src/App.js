@@ -11,7 +11,9 @@ import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs"; // Assuming this is the enhanced AboutUs component with About Company content
 import "./App.css"; // Global styles
 import ProductList from "./components/Product/ProductList";
+import Blogs from "./components/Blogs";
 import Certification from "./components/Certification";
+import Whatsapp from "./components/Whatsapp";
 
 // Dummy components for other pages (replace with actual components as you build them)
 //const Services = () => <h2 style={{ textAlign: "center", marginTop: "100px" }}>Services Page</h2>;
@@ -37,12 +39,13 @@ function App() {
             <Route path="/about" element={<AboutUs />} /> {/* Matches Navbar's "About Company" link */}
             <Route path="/services" element={<Services />}/>
             <Route path="/contactus" element={<ContactUs />}/>
-            
+            <Route path="/blogs" element={<Blogs />} />
             {/* Fallback for unmatched routes */}
             <Route path="*" element={<h2 style={{ textAlign: "center", marginTop: "100px" }}>Page Not Found</h2>} />
           </Routes>
         </main>
         <Footer />
+        <Whatsapp />
       </div>
     </Router>
   );

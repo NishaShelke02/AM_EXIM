@@ -1,12 +1,20 @@
 // src/pages/Home.jsx
 import React, { useState } from "react";
 import {
+  FaEye,
+  FaBullseye,
+  FaAward,
+  FaBalanceScale,
+  FaCheckDouble,
+  FaHandsHelping,
+  FaUsers,
   FaCheckCircle,
   FaGlobe,
   FaLeaf,
   FaHandshake,
   FaBoxOpen,
   FaShippingFast,
+
 } from "react-icons/fa";
 import "./Home.css";
 
@@ -108,6 +116,63 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* ====== VISION & MISSION ====== */}
+<section className="vision-mission">
+  <div className="container vision-mission-grid">
+    <div className="vision-box">
+      <FaEye className="vm-icon" />
+      <h3>VISION</h3>
+      <p>
+        To be the most consistently preferred exporter of Agro Products
+        in terms of quality and affordability across the globe.
+      </p>
+    </div>
+
+    <div className="mission-box">
+      <FaBullseye className="vm-icon" />
+      <h3>MISSION</h3>
+      <p>
+        To supply Indian Agro Products by spreading miles of smiles
+        in every country.
+      </p>
+    </div>
+  </div>
+</section>
+
+{/* ====== CORE VALUES ====== */}
+<section className="core-values">
+  <div className="container">
+    <h2 className="section-title">CORE VALUES</h2>
+
+    <div className="core-values-grid">
+      <div className="core-card">
+        <FaAward className="core-icon" />
+        <h4>Quality</h4>
+      </div>
+
+      <div className="core-card">
+        <FaBalanceScale className="core-icon" />
+        <h4>Integrity</h4>
+      </div>
+
+      <div className="core-card">
+        <FaCheckDouble className="core-icon" />
+        <h4>Accuracy</h4>
+      </div>
+
+      <div className="core-card">
+        <FaHandsHelping className="core-icon" />
+        <h4>Commitment</h4>
+      </div>
+
+      <div className="core-card">
+        <FaUsers className="core-icon" />
+        <h4>Collaboration</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* ====== WHY CHOOSE US ====== */}
       <section className="features-section">
